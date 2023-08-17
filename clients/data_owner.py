@@ -1,13 +1,10 @@
-# %%
 import pandas as pd
 from faker import Faker
 import random
 from flask import Flask, jsonify
 
-# %%
-fake = Faker()
-rows = 10_000
 def generate_data(rows: int) -> pd.DataFrame:
+    fake = Faker()
     data = {
         'Name': [fake.name() for _ in range(rows)],
         'Age': [fake.random_int(min=18, max=80) for _ in range(rows)],
@@ -25,15 +22,12 @@ def generate_data(rows: int) -> pd.DataFrame:
     df = pd.DataFrame(data)
     return (df)
 
-df = generate_data(rows)
+def run_server():
+    rows = 100
+    app = Flask(__name__)
+    df = generate_data(rows)
+    @app.route('/data')
+    def get_data():
+        return jsonify(df.to_dict(orient="records"))
+    app.run()
 
-df = df.to_json(orient='records')
-
-# %%
-app = Flask(__name__)
-@app.route('/data', methods=['GET'])
-def get_data():
-    return df
-
-if __name__ == '__main__':
-    app.run(debug=True)
