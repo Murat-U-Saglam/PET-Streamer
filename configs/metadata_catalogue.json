@@ -1,0 +1,27 @@
+{
+  "headers": [
+    "Name",
+    "Age",
+    "Email",
+    "Address",
+    "Phone",
+    "Gender",
+    "Alchol-use",
+    "Air-pollution",
+    "Diet-score",
+    "Genetic-risk",
+    "Dust-allergy",
+    "Occupational-hazard"
+  ],
+  "requires_anonymisation": ["Name", "Email", "Address", "Phone"],
+  "requires_psuedonimisation": [
+    "Age",
+    "Gender",
+    "Alchol-use",
+    "Air-pollution",
+    "Diet-score",
+    "Genetic-risk",
+    "Dust-allergy",
+    "Occupational-hazard"
+  ]
+}
