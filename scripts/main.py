@@ -8,10 +8,11 @@ import threading
 import time
 
 def main():
-    background_thread = threading.Thread(target=data_owner.main)
-    background_thread.start()
+    data_owner_server= threading.Thread(target=data_owner.main)
+    data_owner_server.start()
     time.sleep(1)
-    api.main()
+    api_server = threading.Thread(target=api.main)
+    api_server.start()
     
 
 if __name__ == "__main__":

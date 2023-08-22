@@ -1,9 +1,9 @@
 import pandas as pd
 from faker import Faker
-from flask import Flask, jsonify
 import logging
 from werkzeug.serving import WSGIRequestHandler
 import json
+from server import ServerGenerator
 
 logger = logging.getLogger(__name__)
 
@@ -28,21 +28,11 @@ def generate_data(rows: int) -> pd.DataFrame:
     return (df)
 
 def run_server(df: pd.DataFrame) -> None:
-    app = Flask(__name__)
-    werkzeug_logger = logging.getLogger('werkzeug')
-    werkzeug_logger.setLevel(logging.ERROR)  # Adjust as needed
-
-    @app.route('/data')
-    def get_data():
-        configuration = json.load(open("configs/metadata_catalogue.json"))
-        return jsonify({"headers": configuration["headers"],
+    configuration = json.load(open("configs/metadata_catalogue.json"))    
+    ServerGenerator(5000, "Data Owner").set_endpoint("data", {"headers": configuration["headers"],
                        "requires_anonymisation": configuration["requires_anonymisation"],
                        "requires_psuedonimisation": configuration["requires_psuedonimisation"],
                         "data": df.to_dict(orient="records")})
-    
-    logger.info("Starting server")
-    WSGIRequestHandler.handler_class = logging.NullHandler
-    app.run(debug=False)
 
 def main():    
     rows = 5

@@ -1,7 +1,8 @@
-2023-08-18 16:20:11 - data_owner - INFO - Generated data
-2023-08-18 16:20:11 - data_owner - INFO - Starting server
-2023-08-18 16:20:12 - api - INFO - Received data
-2023-08-18 16:20:12 - anonymiser - INFO - Recieved data - Preparing to anonymise
-2023-08-18 16:20:12 - root - INFO - Will be anonymising the following columns: ['Name', 'Email', 'Address', 'Phone']
-2023-08-18 16:20:12 - root - INFO - Will be psuedonimising the following columns: ['Age', 'Gender', 'Alchol-use', 'Air-pollution', 'Diet-score', 'Genetic-risk', 'Dust-allergy', 'Occupational-hazard']
-2023-08-18 16:20:12 - anonymiser - INFO - Anonymised data
+2023-08-22 21:58:08 - data_owner - INFO - Generated data
+2023-08-22 21:58:08 - server - INFO - Starting Data Owner server
+2023-08-22 21:58:09 - server - INFO - Received data
+2023-08-22 21:58:09 - anonymiser - INFO - Recieved data - Preparing to anonymise
+2023-08-22 21:58:09 - anonymiser - INFO - Will be anonymising the following columns: ['Name', 'Email', 'Address', 'Phone']
+2023-08-22 21:58:09 - anonymiser - INFO - Will be psuedonimising the following columns: ['Age', 'Gender', 'Alchol-use', 'Air-pollution', 'Diet-score', 'Genetic-risk', 'Dust-allergy', 'Occupational-hazard']
+2023-08-22 21:58:09 - anonymiser - INFO - Anonymised data
+2023-08-22 21:58:09 - server - INFO - Starting Anonymised_Data server
