@@ -1,2 +1,5 @@
 /scripts/__pycache__/*
 /documents
+scripts/__pycache__/anonymiser.cpython-311.pyc
+scripts/__pycache__/api.cpython-311.pyc
+scripts/__pycache__/data_owner.cpython-311.pyc
